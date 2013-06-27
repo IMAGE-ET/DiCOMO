@@ -268,6 +268,118 @@ void Submitter::help(const char *argv) {
             cout << "flag is passed. This message is simply for intellectual" << endl;
             cout << "property and warranty purposes and has no functionality" << endl;
             cout << "for the actual simulation execution." << endl;
+            
+        case 'h':
+            cout << "-h" << endl;
+            cout << endl;
+            cout << "This is the help flah that displays the help messages." << endl;
+            break;
+            
+        case 'i':
+            cout << "-i    <path>" << endl;
+            cout << endl;
+            cout << "This command allows you to set up the Irish data set. It" << endl;
+            cout << "consists of 542 anonymous households where each supplies" << endl;
+            cout << "a 22 week long power profile sampled at 30 minute inter-" << endl;
+            cout << "vals, thus containing 7392 samples." << endl;
+            cout << "This numbers are also the maximum values that can be set" << endl;
+            cout << "for the 'start house' and 'sample delay' values. If they" << endl;
+            cout << "are not set, then they are defaulted to ZERO and ZERO" << endl;
+            cout << "respectively." << endl;
+            cout << endl;
+            cout << "With this command the dataset is loaded. When passing the" << endl;
+            cout << "path string, ensure that it is encapsulated in inverted" << endl;
+            cout << "commas like so: \"data folder/data file.txt\"." << endl;
+            break;
+            
+        case 's':
+            cout << "-s    <+ve num>" << endl;
+            cout << endl;
+            cout << "Once the irish dataset has been set up with the '-i' flag" << endl;
+            cout << "then this allows to set the starting house. Depending on" << endl;
+            cout << "the length of the feeder and the number of phases applied" << endl;
+            cout << "determine how many consecutive household power values are" << endl;
+            cout << "extracted. The value passed here must be greater or equal" << endl;
+            cout << "to zero and determines the start from where the power" << endl;
+            cout << "values are extractec. A sample use would be:" << endl;
+            cout << endl;
+            cout << " ./DiCOMO -s 3  To set the starting house to house number" << endl;
+            cout << "                three." << endl;
+            cout << endl;
+            break;
+            
+        case 'd':
+            cout << "-d    <+ve num>" << endl;
+            cout << endl;
+            cout << "This sets up the sample delay which chooses which sample" << endl;
+            cout << "will be extracted form the data and inserted into the" << endl;
+            cout << "simulation. The Irish data set is 7392 samples long which" << endl;
+            cout << "makes the maximum value 7392. The minimum value passed" << endl;
+            cout << "must therefore be zero. This is also the default value." << endl;
+            cout << "A sample implementation would be:" << endl;
+            cout << endl;
+            cout << " ./DiCOMO -d 3  To set the third power value to be extra-" << endl;
+            cout << "                cted from the data set." << endl;
+            cout << endl;
+            break;
+            
+        case 'o':
+            cout << "-o    <path>" << endl;
+            cout << endl;
+            cout << "The output data is stored at the path in the file name" << endl;
+            cout << "passed in the path variable. If any spaces are passed" << endl;
+            cout << "then the path must be encapsulated in inverted commas" << endl;
+            cout << "like so: \"path to folder/output\". It is also important" << endl;
+            cout << "not to append a suffix to the output file since this is" << endl;
+            cout << "done automatically." << endl;
+            cout << endl;
+            break;
+            
+        case 'p':
+            cout << "-p    <+ve num>" << endl;
+            cout << endl;
+            cout << "This sets up the number of phases that is applied to the" << endl;
+            cout << "simulation. The minimum value must be one and the maximum" << endl;
+            cout << "value is unspecified." << endl;
+            cout << endl;
+            break;
+        
+        case 'v':
+            cout << "-v<n> <+ve num>" << endl;
+            cout << endl;
+            cout << "The source and sink (ground) voltages are set up via this" << endl;
+            cout << "command. The source Vcc is set up by passing 'c' as the" << endl;
+            cout << "'n' parameter and the value for this is passed as the num" << endl;
+            cout << "value which may be a decimal value, too. E.g." << endl;
+            cout << endl;
+            cout << " ./DiCOMO -vc 240.0    To set up the supply voltage" << endl;
+            cout << endl;
+            cout << "The same applies to sink/ground Vss where 's' is passed as" << endl;
+            cout << "rge 'n' parameter. E.g." << endl;
+            cout << endl;
+            cout << " ./DiCOMO -vs 0.0      To set up the ground voltage" << endl;
+            cout << endl;
+            cout << "The voltages are atomatically rotated for different pases" << endl;
+            cout << endl;
+            break;
+            
+        case 'l':
+            cout << "-l    <+ve num>" << endl;
+            cout << endl;
+            cout << "The length of the feeder/s is set up with this command." << endl;
+            cout << "When multiple phases are selected, then the length times" << endl;
+            cout << "the number of phases determines how many houses are" << endl;
+            cout << "extracetd from the Irish data set." << endl;
+            cout << endl;
+            break;
+            
+        case 'r':
+            cout << "-r" << endl;
+            cout << endl;
+            cout << "Runs the simulation and should be passed last." << endl;
+            cout << endl;
+            break;
+            
         default:
             break;
     }
